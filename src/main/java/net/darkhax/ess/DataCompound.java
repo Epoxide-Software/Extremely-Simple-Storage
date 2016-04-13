@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 public class DataCompound implements Serializable, Iterable<Serializable> {
     
@@ -136,6 +137,16 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     public void empty () {
         
         this.valueMap.clear();
+    }
+    
+    /**
+     * Allows an action to be applied on all values in the internal value map.
+     * 
+     * @param action The action to apply to all values in the internal value map.
+     */
+    public void forEach (BiConsumer<? super String, ? super Serializable> action) {
+        
+        this.valueMap.forEach(action);
     }
     
     /**
