@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class DataCompound implements Serializable, Iterable<Serializable>{
+public class DataCompound implements Serializable, Iterable<Serializable> {
     
     /**
      * The serial UID for a DataCompound. Used by Java to confirm deserialization of a
@@ -351,5 +351,40 @@ public class DataCompound implements Serializable, Iterable<Serializable>{
     public DataCompound clone () {
         
         return new DataCompound((HashMap<String, Serializable>) this.valueMap.clone());
+    }
+    
+    @Override
+    public int hashCode () {
+        
+        return 31 * 1 + ((valueMap == null) ? 0 : valueMap.hashCode());
+    }
+    
+    @Override
+    public boolean equals (Object obj) {
+        
+        if (this == obj)
+            return true;
+            
+        if (obj == null)
+            return false;
+            
+        if (getClass() != obj.getClass())
+            return false;
+            
+        DataCompound other = (DataCompound) obj;
+        
+        if (valueMap == null && other.valueMap == null)
+            return true;
+            
+        else if (valueMap.equals(other.valueMap))
+            return true;
+            
+        return false;
+    }
+    
+    @Override
+    public String toString () {
+        
+        return "DataCompound [valueMap=" + valueMap + "]";
     }
 }
