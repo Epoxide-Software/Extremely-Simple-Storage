@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import net.darkhax.opennbt.tags.Tag;
-
-public class DataCompound implements Serializable {
+public class DataCompound implements Serializable, Iterable<Serializable>{
     
     /**
      * The serial UID for a DataCompound. Used by Java to confirm deserialization of a
@@ -340,6 +338,12 @@ public class DataCompound implements Serializable {
         
         Serializable value = this.valueMap.get(name);
         return (value instanceof String[]) ? (String[]) value : new String[0];
+    }
+    
+    @Override
+    public Iterator<Serializable> iterator () {
+        
+        return this.valueMap.values().iterator();
     }
     
     @Override
