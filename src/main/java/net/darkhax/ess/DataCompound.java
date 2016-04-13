@@ -2,6 +2,10 @@ package net.darkhax.ess;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import net.darkhax.opennbt.tags.Tag;
 
 public class DataCompound implements Serializable {
     
@@ -123,6 +127,219 @@ public class DataCompound implements Serializable {
     public void empty () {
         
         this.valueMap.clear();
+    }
+    
+    /**
+     * Gets a byte value from the internal value map. If no value is found with the given name,
+     * a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return byte The stored byte value, or a default value if no appropriate value was
+     *         found.
+     */
+    public byte getByte (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Byte) ? (byte) value : 0;
+    }
+    
+    /**
+     * Gets a short value from the internal value map. If no value is found with the given
+     * name, a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return short The stored short value, or a default value if no appropriate value was
+     *         found.
+     */
+    public short getShort (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Short) ? (short) value : 0;
+    }
+    
+    /**
+     * Gets a int value from the internal value map. If no value is found with the given name,
+     * a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return int The stored int value, or a default value if no appropriate value was found.
+     */
+    public int getInt (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Integer) ? (int) value : 0;
+    }
+    
+    /**
+     * Gets a long value from the internal value map. If no value is found with the given name,
+     * a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return long The stored long value, or a default value if no appropriate value was
+     *         found.
+     */
+    public long getLong (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Long) ? (long) value : 0;
+    }
+    
+    /**
+     * Gets a float value from the internal value map. If no value is found with the given
+     * name, a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return float The stored float value, or a default value if no appropriate value was
+     *         found.
+     */
+    public float getFloat (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Float) ? (float) value : 0;
+    }
+    
+    /**
+     * Gets a double value from the internal value map. If no value is found with the given
+     * name, a default value will be returned.
+     * 
+     * @param name The name of the value to search for.
+     * @return double The stored double value, or a default value if no appropriate value was
+     *         found.
+     */
+    public double getDouble (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Double) ? (double) value : 0;
+    }
+    
+    /**
+     * Gets a byte[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return byte[] The stored byte[] value, or a default value if no appropriate value was
+     *         found.
+     */
+    public byte[] getByteArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof byte[]) ? (byte[]) value : new byte[0];
+    }
+    
+    /**
+     * Gets a String value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return String The stored String value, or a default value if no appropriate value was
+     *         found.
+     */
+    public String getString (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof String) ? (String) value : "";
+    }
+    
+    /**
+     * Gets a List value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return List The stored List value, or a default value if no appropriate value was
+     *         found.
+     */
+    public List<?> getList (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof List) ? (List<?>) value : null;
+    }
+    
+    /**
+     * Gets a DataCompound value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return DataCompound The stored DataCompound value, or a default value if no appropriate
+     *         value was found.
+     */
+    public DataCompound getDataCompound (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof DataCompound) ? (DataCompound) value : null;
+    }
+    
+    /**
+     * Gets a int[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return int[] The stored int[] value, or a default value if no appropriate value was
+     *         found.
+     */
+    public int[] getIntArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof int[]) ? (int[]) value : new int[0];
+    }
+    
+    /**
+     * Gets a double[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return double[] The stored double[] value, or a default value if no appropriate value
+     *         was found.
+     */
+    public double[] getDoubleArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof double[]) ? (double[]) value : new double[0];
+    }
+    
+    /**
+     * Gets a float[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return flot[] The stored float[] value, or a default value if no appropriate value was
+     *         found.
+     */
+    public float[] getFloatArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof float[]) ? (float[]) value : new float[0];
+    }
+    
+    /**
+     * Gets a long[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return long[] The stored long[] value, or a default value if no appropriate value was
+     *         found.
+     */
+    public long[] getLongArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof long[]) ? (long[]) value : new long[0];
+    }
+    
+    /**
+     * Gets a short[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return short[] The stored short[] value, or a default value if no appropriate value was
+     *         found.
+     */
+    public short[] getShortArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof short[]) ? (short[]) value : new short[0];
+    }
+    
+    /**
+     * Gets a String[] value from the internal value map.
+     * 
+     * @param name The name of the value to search for.
+     * @return String[] The stored String[] value, or a default value if no appropriate value
+     *         was found.
+     */
+    public String[] getStringArray (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof String[]) ? (String[]) value : new String[0];
     }
     
     @Override
