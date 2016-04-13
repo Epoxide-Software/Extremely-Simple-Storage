@@ -150,6 +150,18 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     }
     
     /**
+     * Replaces an existing value on the internal value map with a new one.
+     * 
+     * @param name The name of the value to replace.
+     * @param value The value to replace the older value with.
+     * @return Serializable The value that has been replaced.
+     */
+    public Serializable replace (String name, Serializable value) {
+        
+        return valueMap.replace(name, value);
+    }
+    
+    /**
      * Gets a byte value from the internal value map. If no value is found with the given name,
      * a default value will be returned.
      * 
