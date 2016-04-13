@@ -100,6 +100,17 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     }
     
     /**
+     * Checks if the internal value map has the passed value.
+     * 
+     * @param value The value you are looking for.
+     * @return boolean Whether or not the value passed is on the internal value map.
+     */
+    public boolean hasValue (Serializable value) {
+        
+        return valueMap.containsValue(value);
+    }
+    
+    /**
      * Removes a value from the internal value map with the passed name.
      * 
      * @param name The name of the tag to remove.
