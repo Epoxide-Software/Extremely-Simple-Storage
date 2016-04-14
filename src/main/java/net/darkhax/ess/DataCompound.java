@@ -297,6 +297,19 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     }
     
     /**
+     * Gets a boolean value from the internal value map.
+     * 
+     * @param name The name of the boolean to search for.
+     * @return boolean The stored boolean value, or a default value if no appropriate value was
+     *         found.
+     */
+    public boolean getBoolean (String name) {
+        
+        Serializable value = this.valueMap.get(name);
+        return (value instanceof Boolean) ? (Boolean) value : false;
+    }
+    
+    /**
      * Gets a int[] value from the internal value map.
      * 
      * @param name The name of the value to search for.
@@ -394,31 +407,29 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     }
     
     @Override
+    public String toString () {
+        
+        return "DataCompound [valueMap=" + valueMap + "]";
+    }
+    
+    // TODO add special catch to allow arrays to work.
+    // Currently an array value will always fail this check.
+    @Override
     public boolean equals (Object obj) {
         
         if (this == obj)
             return true;
-            
         if (obj == null)
             return false;
-            
         if (getClass() != obj.getClass())
             return false;
-            
         DataCompound other = (DataCompound) obj;
-        
-        if (valueMap == null && other.valueMap == null)
-            return true;
-            
-        else if (valueMap.equals(other.valueMap))
-            return true;
-            
-        return false;
-    }
-    
-    @Override
-    public String toString () {
-        
-        return "DataCompound [valueMap=" + valueMap + "]";
+        if (valueMap == null) {
+            if (other.valueMap != null)
+                return false;
+        }
+        else if (!valueMap.equals(other.valueMap))
+            return false;
+        return true;
     }
 }
