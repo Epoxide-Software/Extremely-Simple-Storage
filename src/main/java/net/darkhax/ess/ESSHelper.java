@@ -41,16 +41,9 @@ public class ESSHelper {
      */
     public static DataCompound readCompound (File file) {
         
-        try {
+        try (FileInputStream fileStream = new FileInputStream(file); ObjectInputStream objectStream = new ObjectInputStream(new InflaterInputStream(fileStream));) {
             
-            final FileInputStream fileStream = new FileInputStream(file);
-            final ObjectInputStream objectStream = new ObjectInputStream(new InflaterInputStream(fileStream));
-            final DataCompound compound = (DataCompound) objectStream.readObject();
-            
-            objectStream.close();
-            fileStream.close();
-            
-            return compound;
+            return (DataCompound) objectStream.readObject();
         }
         
         catch (IOException | ClassNotFoundException exception) {
@@ -82,14 +75,9 @@ public class ESSHelper {
      */
     public static void writeCompound (DataCompound data, File file) {
         
-        try {
-            
-            final FileOutputStream fileStream = new FileOutputStream(file);
-            final ObjectOutputStream objectStream = new ObjectOutputStream(new DeflaterOutputStream(fileStream));
+        try (FileOutputStream fileStream = new FileOutputStream(file); ObjectOutputStream objectStream = new ObjectOutputStream(new DeflaterOutputStream(fileStream))) {
             
             objectStream.writeObject(data);
-            objectStream.close();
-            fileStream.close();
         }
         
         catch (final IOException exception) {
