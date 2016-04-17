@@ -55,6 +55,7 @@ public class ESSHelper {
         
         catch (IOException | ClassNotFoundException exception) {
         
+            exception.printStackTrace();
         }
         
         return null;
