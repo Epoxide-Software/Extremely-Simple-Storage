@@ -17,14 +17,14 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     /**
      * A map which holds all the data held by the object.
      */
-    private HashMap<String, Serializable> valueMap;
+    private final HashMap<String, Serializable> valueMap;
     
     /**
      * Constructs a default DataCompound with no data on it.
      */
     public DataCompound() {
         
-        valueMap = new HashMap<String, Serializable>();
+        this.valueMap = new HashMap<String, Serializable>();
     }
     
     /**
@@ -44,7 +44,7 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public String[] getNames () {
         
-        return this.valueMap.keySet().toArray(new String[valueMap.size()]);
+        return this.valueMap.keySet().toArray(new String[this.valueMap.size()]);
     }
     
     /**
@@ -54,7 +54,7 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public Serializable[] getValues () {
         
-        return this.valueMap.entrySet().toArray(new Serializable[valueMap.size()]);
+        return this.valueMap.entrySet().toArray(new Serializable[this.valueMap.size()]);
     }
     
     /**
@@ -108,7 +108,7 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public boolean hasValue (Serializable value) {
         
-        return valueMap.containsValue(value);
+        return this.valueMap.containsValue(value);
     }
     
     /**
@@ -158,7 +158,7 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public Serializable replace (String name, Serializable value) {
         
-        return valueMap.replace(name, value);
+        return this.valueMap.replace(name, value);
     }
     
     /**
@@ -171,8 +171,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public byte getByte (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Byte) ? (byte) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Byte ? (byte) value : 0;
     }
     
     /**
@@ -185,8 +185,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public short getShort (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Short) ? (short) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Short ? (short) value : 0;
     }
     
     /**
@@ -198,8 +198,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public int getInt (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Integer) ? (int) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Integer ? (int) value : 0;
     }
     
     /**
@@ -212,8 +212,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public long getLong (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Long) ? (long) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Long ? (long) value : 0;
     }
     
     /**
@@ -226,8 +226,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public float getFloat (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Float) ? (float) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Float ? (float) value : 0;
     }
     
     /**
@@ -240,8 +240,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public double getDouble (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Double) ? (double) value : 0;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Double ? (double) value : 0;
     }
     
     /**
@@ -253,8 +253,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public byte[] getByteArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof byte[]) ? (byte[]) value : new byte[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof byte[] ? (byte[]) value : new byte[0];
     }
     
     /**
@@ -266,8 +266,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public String getString (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof String) ? (String) value : "";
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof String ? (String) value : "";
     }
     
     /**
@@ -279,8 +279,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public List<?> getList (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof List) ? (List<?>) value : null;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof List ? (List<?>) value : null;
     }
     
     /**
@@ -292,8 +292,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public DataCompound getDataCompound (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof DataCompound) ? (DataCompound) value : null;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof DataCompound ? (DataCompound) value : null;
     }
     
     /**
@@ -305,8 +305,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public boolean getBoolean (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof Boolean) ? (Boolean) value : false;
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof Boolean ? (Boolean) value : false;
     }
     
     /**
@@ -318,8 +318,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public int[] getIntArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof int[]) ? (int[]) value : new int[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof int[] ? (int[]) value : new int[0];
     }
     
     /**
@@ -331,8 +331,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public double[] getDoubleArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof double[]) ? (double[]) value : new double[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof double[] ? (double[]) value : new double[0];
     }
     
     /**
@@ -344,8 +344,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public float[] getFloatArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof float[]) ? (float[]) value : new float[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof float[] ? (float[]) value : new float[0];
     }
     
     /**
@@ -357,8 +357,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public long[] getLongArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof long[]) ? (long[]) value : new long[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof long[] ? (long[]) value : new long[0];
     }
     
     /**
@@ -370,8 +370,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public short[] getShortArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof short[]) ? (short[]) value : new short[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof short[] ? (short[]) value : new short[0];
     }
     
     /**
@@ -383,8 +383,8 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
      */
     public String[] getStringArray (String name) {
         
-        Serializable value = this.valueMap.get(name);
-        return (value instanceof String[]) ? (String[]) value : new String[0];
+        final Serializable value = this.valueMap.get(name);
+        return value instanceof String[] ? (String[]) value : new String[0];
     }
     
     @Override
@@ -403,13 +403,13 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
     @Override
     public int hashCode () {
         
-        return 31 * 1 + ((valueMap == null) ? 0 : valueMap.hashCode());
+        return 31 * 1 + (this.valueMap == null ? 0 : this.valueMap.hashCode());
     }
     
     @Override
     public String toString () {
         
-        return "DataCompound [valueMap=" + valueMap + "]";
+        return "DataCompound [valueMap=" + this.valueMap + "]";
     }
     
     // TODO add special catch to allow arrays to work.
@@ -419,17 +419,22 @@ public class DataCompound implements Serializable, Iterable<Serializable> {
         
         if (this == obj)
             return true;
+            
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+            
+        if (this.getClass() != obj.getClass())
             return false;
-        DataCompound other = (DataCompound) obj;
-        if (valueMap == null) {
+            
+        final DataCompound other = (DataCompound) obj;
+        
+        if (this.valueMap == null)
             if (other.valueMap != null)
                 return false;
-        }
-        else if (!valueMap.equals(other.valueMap))
-            return false;
+                
+            else if (!this.valueMap.equals(other.valueMap))
+                return false;
+                
         return true;
     }
 }

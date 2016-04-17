@@ -54,7 +54,7 @@ public class ESSHelper {
         }
         
         catch (IOException | ClassNotFoundException exception) {
-        
+            
             exception.printStackTrace();
         }
         
@@ -92,7 +92,7 @@ public class ESSHelper {
             fileStream.close();
         }
         
-        catch (IOException exception) {
+        catch (final IOException exception) {
             
             exception.printStackTrace();
         }

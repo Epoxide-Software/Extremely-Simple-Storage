@@ -20,20 +20,21 @@ public class ESSTest {
         System.out.println("Starting basic IO test");
         
         // Creates a new CompoundTag with various data stored.
-        DataCompound write = new DataCompound();
+        final DataCompound write = new DataCompound();
         write.setValue("TestInteger", 1337);
         write.setValue("TestString", "Hello World!");
-        //write.setValue("TestIntegerArray", new int[] { 200, 200, 208, 208, 203, 205, 203, 205, 48, 30 });
+        // write.setValue("TestIntegerArray", new int[] { 200, 200, 208, 208, 203, 205, 203,
+        // 205, 48, 30 });
         
         // Writes the data file for the IO test.
         ESSHelper.writeCompound(write, "IOTest.dat");
         
         // Reads the NBT data from the NBTExample.nbt file.
-        DataCompound read = ESSHelper.readCompound("IOTest.dat");
+        final DataCompound read = ESSHelper.readCompound("IOTest.dat");
         
         // Results for the test
         System.out.println("Test Integer: " + write.toString());
         System.out.println("Read Dump: " + read.toString());
-        System.out.println("The IO test was " + ((read.equals(write)) ? "successful!" : "not successful") + NEW_LINE);
+        System.out.println("The IO test was " + (read.equals(write) ? "successful!" : "not successful") + NEW_LINE);
     }
 }
