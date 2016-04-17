@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ESSHelper {
     
@@ -18,6 +20,12 @@ public class ESSHelper {
      * project and is handled by the build server.
      */
     public static final String VERSION = "1.0.0";
+    
+    /**
+     * Logger for the Extremely Simple Storage project. Allows for greater compatibility
+     * support with other logger APIs. This should only ever be used internally!
+     */
+    protected static final Logger LOGGER = Logger.getLogger("ESS");
     
     /**
      * Attempts to read a DataCompound from the passed filepath string. See
@@ -48,7 +56,7 @@ public class ESSHelper {
         
         catch (IOException | ClassNotFoundException exception) {
             
-            exception.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Exception while reading DataCompound from file.", exception);
         }
         
         return null;
@@ -82,7 +90,7 @@ public class ESSHelper {
         
         catch (final IOException exception) {
             
-            exception.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Exception while writing DataCompound to file.", exception);
         }
     }
 }
