@@ -5,7 +5,7 @@ A Java library for saving data in an extremely simple way.
 The latest source code can be found here on [GitHub](https://github.com/darkhax/Extremely-Simple-Storage). If you are using Git, you can use the following command to clone the project: `git clone git:github.com/darkhax/Extremely-Simple-Storage.git`
 
 ##Building from Source
-This project can be built using the Gradle Wrapper included in the repository. When the `gradlew build` command is executed from within the repo directory, a compiled JAR will be created in `~/build/libs`. Sources and Javadocs will also be generated in the same directory. Alternatively the latest builds of Extremely Simple Storage along with Sources and Javadocs can be found [here](http://maven.rubbix.net/net/darkhax/opennbt/Extremely-Simple-Storage)
+This project can be built using the Gradle Wrapper included in the repository. When the `gradlew build` command is executed from within the repo directory, a compiled JAR will be created in `~/build/libs`. Sources and Javadocs will also be generated in the same directory. Alternatively the latest builds of Extremely Simple Storage along with Sources and Javadocs can be found [here](http://maven.epoxide.xyz/net/darkhax/opennbt/Extremely-Simple-Storage)
 
 ##Contributing
 This project is open to contributions from other members of the community. If you would like to contribute towards this project you can open an issue, or create a new pull request. If you create a new pull request, please be sure to read the project [guidelines and coding standards](https://github.com/darkhax/Extremely-Simple-Storage/blob/master/CONTRIBUTING.md).
@@ -31,8 +31,8 @@ If you are using [Maven](https://maven.apache.org/download.cgi) to manage your d
 ```
 <repositories>
     <repository>
-        <id>Rubbix.net</id>
-        <url>http://maven.rubbix.net</url>
+        <id>epoxide.xyz</id>
+        <url>http://maven.epoxide.xyz</url>
     </repository>
 </repositories>
 
@@ -50,7 +50,7 @@ repositories {
     mavenCentral()
     maven { 
     
-        url 'http://maven.rubbix.net' 
+        url 'http://maven.epoxide.xyz' 
     }
 }
 
