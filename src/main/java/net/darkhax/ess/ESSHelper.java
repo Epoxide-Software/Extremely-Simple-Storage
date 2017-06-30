@@ -12,15 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ESSHelper {
-    
-    /**
-     * The current version of the library. Follows a Major-Release-Build structure. The major
-     * number points to the current iteration of the project. The release number points to the
-     * current release of the project. The build number refers to the current build of the
-     * project and is handled by the build server.
-     */
-    public static final String VERSION = "1.0.0";
-    
+
     /**
      * Logger for the Extremely Simple Storage project. Allows for greater compatibility
      * support with other logger APIs. This should only ever be used internally!
