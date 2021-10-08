@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.zip.DeflaterOutputStream;
@@ -41,8 +42,8 @@ public class ESSHelper {
      */
     public static DataCompound readCompound (File file) {
         
-        try (FileInputStream fileStream = new FileInputStream(file); ObjectInputStream objectStream = new ObjectInputStream(new InflaterInputStream(fileStream));) {
-            
+        try (FileInputStream fileStream = new FileInputStream(file); ObjectInputStream objectStream = new ObjectInputStream(new InflaterInputStream(fileStream))) {
+
             return (DataCompound) objectStream.readObject();
         }
         
@@ -51,6 +52,29 @@ public class ESSHelper {
             LOGGER.log(Level.SEVERE, "Exception while reading DataCompound from file.", exception);
         }
         
+        return null;
+    }
+
+    /**
+     * Attempts to read a DataCompound from the passed input stream. This will use an
+     * InflaterInputStream to read the compressed data from
+     * {@link #writeCompound(DataCompound, File)}.
+     *
+     * @param inputStream The stream to read data from.
+     * @return DataCompound The data that was read from the stream.
+     */
+    public static DataCompound readCompound (InputStream inputStream) {
+
+        try (ObjectInputStream objectStream = new ObjectInputStream(new InflaterInputStream(inputStream))) {
+
+            return (DataCompound) objectStream.readObject();
+        }
+
+        catch (IOException | ClassNotFoundException exception) {
+
+            LOGGER.log(Level.SEVERE, "Exception while reading DataCompound from input stream.", exception);
+        }
+
         return null;
     }
     
